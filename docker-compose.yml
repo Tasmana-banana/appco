@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  appjs:
+    build: .
+    container_name: appjs
+    restart: unless-stopped
+    networks:
+      appco_net:
+  nginx:
+     image: nginx:alpine
+     container_name: nginx
+     restart: unless-stopped
+     ports:
+       - 80:80
+       - 443:443
+     volumes:
+       - web-root:/var/www/app
+       - ./nginx-conf/nginx.conf:/etc/nginx/conf.d/default.conf
+     depends_on:
+       - appjs
+     networks:
+       appco_net:
+
+volumes:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /root/appco
+      o: bind
+
+networks:
+  appco_net:
+    name: appco_net
