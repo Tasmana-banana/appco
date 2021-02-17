@@ -6,12 +6,20 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+      - name: yarn install
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install 
+      - name: yarn build
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: build 
+          cmd: build
+      - name: yarn test
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: test 
+          cmd: test
+      - name: Test Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+        
