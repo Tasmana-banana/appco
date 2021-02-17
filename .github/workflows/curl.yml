@@ -10,7 +10,7 @@ jobs:
       - name: curl actuator
         id: ping
         run: |
-          echo "::set-output name=status::$(curl -v ${{ secrets.SERVER_HOST }}"
+          echo "::set-output name=status::$(curl -v ${{ secrets.SERVER_HOST }})"
       - name: health check
         run: |
           if [[ ${{ steps.ping.outputs.status }} != *"UP"* ]]; then
