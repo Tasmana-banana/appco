@@ -15,14 +15,6 @@ Environment setup (recommended versions):
 
 3) Setup `Apache` or `Nginx` for accessing the application via browser.
 
-# Task inputs
-
-* Server IP is `138.68.106.237`, user - `root`
-
-* Folder `keys/` contains public and private keys for accessing server through SSH tunel
-
-* Commands for testing and building are listed below
-
 # Commands
 
 ### `npm install`
