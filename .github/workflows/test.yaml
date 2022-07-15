@@ -6,20 +6,20 @@ on:
   pull_request:
 
 env:
-  SERVICE: testing-tool
+  SERVICE:  omo-devops-test-task
   SITE: site-sample
   TAG: latest
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: lucasalt/act_base:latest
+    #container:
+      #image: lucasalt/act_base:latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          path: "omo-devops-test-task"
+          path: "$SERVICE"
       - uses: actions/checkout@v2
         with:
           path: "vs-studio"
@@ -30,11 +30,9 @@ jobs:
           ls vs-studio
           ls omo-devops-test-task
 
-#       - name: Build docker
-#         run: | 
-#           echo ---Building and starting up docker---
-#           docker-compose -f ./<REPO_NAME>/docker-compose.test.yml -p testing up -d
-#           echo ---Containers up---
+      - name: Build docker tool
+        working-directory: $SERVICE
+        run: docker build --file $SERVICE/Dockerfile .
 
 #       - name: Run test
 #         run: |
