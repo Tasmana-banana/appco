@@ -28,10 +28,10 @@ jobs:
         run: | 
           ls -a
           ls vs-studio
-          ls omo-devops-test-task
+          ls ${{env.SERVICE}}
 
       - name: Build docker tool
-        working-directory: omo-devops-test-task
+        working-directory: ${{env.SERVICE}}
         run: docker build --file Dockerfile .
 
 #       - name: Run test
