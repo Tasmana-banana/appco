@@ -17,11 +17,13 @@ jobs:
           path: "omo-devops-test-task"
       - uses: actions/checkout@v2
         with:
-          path: vs-studio
+          path: "vs-studio"
 
       - name: ls files
         run: | 
           ls -a
+          ls vs-studio
+          ls omo-devops-test-task
 
 #       - name: Build docker
 #         run: | 
