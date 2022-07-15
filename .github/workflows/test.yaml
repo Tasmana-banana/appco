@@ -31,7 +31,7 @@ jobs:
           ls omo-devops-test-task
 
       - name: Build docker tool
-        working-directory: $SERVICE
+        working-directory: omo-devops-test-task
         run: docker build --file omo-devops-test-task/Dockerfile .
 
 #       - name: Run test
