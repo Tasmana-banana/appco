@@ -32,7 +32,7 @@ jobs:
 
       - name: Build docker tool
         working-directory: $SERVICE
-        run: docker build --file $SERVICE/Dockerfile .
+        run: docker build --file omo-devops-test-task/Dockerfile .
 
 #       - name: Run test
 #         run: |
