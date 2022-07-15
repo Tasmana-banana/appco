@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     container:
       image: lucasalt/act_base:latest
@@ -17,19 +16,19 @@ jobs:
         with:
           path: "omo-devops-test-task"
 
-    - name: ls files
-      run: | 
-        ls -a
+      - name: ls files
+        run: | 
+          ls -a
 
-    - name: Build docker
-      run: | 
-        echo ---Building and starting up docker---
-        docker-compose -f ./<REPO_NAME>/docker-compose.test.yml -p testing up -d
-        echo ---Containers up---
-        
-    - name: Run test
-      run: |
-        echo --- Running test cases ---
-        docker-compose -f ./<REPO_NAME>/docker-compose.test-github.yml -p testing up --build --exit-code-from api-test
-        echo --- Completed test cases ---
+#       - name: Build docker
+#         run: | 
+#           echo ---Building and starting up docker---
+#           docker-compose -f ./<REPO_NAME>/docker-compose.test.yml -p testing up -d
+#           echo ---Containers up---
+
+#       - name: Run test
+#         run: |
+#           echo --- Running test cases ---
+#           docker-compose -f ./<REPO_NAME>/docker-compose.test-github.yml -p testing up --build --exit-code-from api-test
+#           echo --- Completed test cases ---
         
