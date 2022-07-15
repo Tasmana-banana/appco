@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  SERVICE:  omo-devops-test-task
+  SERVICE: omo-devops-test-task
   SITE: site-sample
   TAG: latest
 
