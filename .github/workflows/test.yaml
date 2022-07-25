@@ -32,6 +32,10 @@ jobs:
 
       - name: Build docker tool
         working-directory: ${{env.SERVICE}}
+        run: env
+
+      - name: Build docker tool
+        working-directory: ${{env.SERVICE}}
         run: docker build --file Dockerfile .
 
 #       - name: Run test
