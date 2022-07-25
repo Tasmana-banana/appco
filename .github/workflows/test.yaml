@@ -7,7 +7,7 @@ on:
 
 env:
   SERVICE: omo-devops-test-task
-  SITE: site-sample
+  SITE: vs-studio
   TAG: latest
 
 jobs:
@@ -22,12 +22,12 @@ jobs:
           path: "${{env.SERVICE}}"
       - uses: actions/checkout@v2
         with:
-          path: "vs-studio"
+          path: "${{env.SITE}}"
 
       - name: ls files
         run: | 
           ls -a
-          ls vs-studio
+          ls "${{env.SITE}}"
           ls ${{env.SERVICE}}
 
       - name: Build docker tool
